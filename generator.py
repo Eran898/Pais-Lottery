@@ -1,9 +1,55 @@
+import pandas as pd
 import random
-print(random.sample(range(1, 36), 6),",",(random.sample(range(1, 7), 1)))
-import random
+
+data= pd.read_csv("avrage.csv")
+
+dataStrong= pd.read_csv("avrageStrong.csv")
+
+
 numbers = [0,0,0,0,0,0]
-sampleMassDistStrong = (0.149140893, 0.137457045, 0.15532646, 0.135395189, 0.142268041, 0.143642612, 0.136769759)
+sampleMassDistStrong = (dataStrong.avrage[0], dataStrong.avrage[1], dataStrong.avrage[2], dataStrong.avrage[3], dataStrong.avrage[4], dataStrong.avrage[5], dataStrong.avrage[6])
 # assume sum of bias is 1
+
+
+sampleMassDist = (data.avrage[0],
+data.avrage[1]
+,data.avrage[2]
+,data.avrage[3]
+,data.avrage[4]
+,data.avrage[5]
+,data.avrage[6]
+,data.avrage[7]
+,data.avrage[8]
+,data.avrage[9]
+,data.avrage[10]
+,data.avrage[11]
+,data.avrage[12]
+,data.avrage[13]
+,data.avrage[14]
+,data.avrage[15]
+,data.avrage[16]
+,data.avrage[17]
+,data.avrage[18]
+,data.avrage[19]
+,data.avrage[20]
+,data.avrage[21]
+,data.avrage[22]
+,data.avrage[23]
+,data.avrage[24]
+,data.avrage[25]
+,data.avrage[26]
+,data.avrage[27]
+,data.avrage[28]
+,data.avrage[29]
+,data.avrage[30]
+,data.avrage[31]
+,data.avrage[32]
+,data.avrage[33]
+,data.avrage[34]
+,data.avrage[35]
+,data.avrage[36]
+)
+
 def rollStrong(massDist):
     randRoll = random.random() # in [0,1]
     sum = 0
@@ -14,46 +60,8 @@ def rollStrong(massDist):
             return result
         result+=1
 
-sampleMassDist = (0.029476616,
-0.027271672
-,0.027735871
-,0.025646977
-,0.026459325
-,0.028896368
-,0.025879076
-,0.030288964
-,0.026691424
-,0.028664268
-,0.030521063
-,0.030985262
-,0.028548219
-,0.024950679
-,0.027155623
-,0.027155623
-,0.027735871
-,0.026343275
-,0.025879076
-,0.029244517
-,0.028664268
-,0.027619821
-,0.027271672
-,0.026227225
-,0.030405013
-,0.029476616
-,0.027271672
-,0.029012417
-,0.028896368
-,0.027619821
-,0.026227225
-,0.025995126
-,0.02808402
-,0.026807474
-,0.02808402
-,0.026807474
-)
-# assume sum of bias is 1
 def roll(massDist):
-    randRoll = random.random() # in [0,1]
+    randRoll = random.random()
     sum = 0
     result = 1
     for mass in massDist:
@@ -62,7 +70,7 @@ def roll(massDist):
             return result
         result+=1
 
-for z in range(12):
+for z in range(14):
     num = roll(sampleMassDist)
     for x in range(6):
         while(num in numbers):
@@ -70,18 +78,3 @@ for z in range(12):
         numbers[x] = num
     numbers.sort()
     print(z+1,") ",numbers," ",rollStrong(sampleMassDistStrong))
-
-
-
-sample = (0.1, 0.1, 0.5, 0.1, 0.1, 0.1)
-# assume sum of bias is 1
-def rollsample(massDist):
-    randRoll = random.random() # in [0,1]
-    sum = 0
-    result = 1
-    for mass in massDist:
-        sum += mass
-        if randRoll < sum:
-            return result
-        result+=1
-print(rollsample(sample))
