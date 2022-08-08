@@ -70,9 +70,8 @@ def roll(massDist):
             return result
         result+=1
 
-"""
-for (j<1,756,792):
-    j++
+
+def generator():
     for z in range(14):
         num = roll(sampleMassDist)
         for x in range(6):
@@ -80,8 +79,10 @@ for (j<1,756,792):
                 num = roll(sampleMassDist)
             numbers[x] = num
         numbers.sort()
-        print(z+1,") ",numbers," ",rollStrong(sampleMassDistStrong))"""
+        print(z+1,") ",numbers," ",rollStrong(sampleMassDistStrong))
 
+
+"""if you want to see how many iterations it will be needed to guess the lottery numbers.. enter them here: and remove this line <---
 num = [11, 12, 13, 16, 34, 36]
 def test(array):
     total =0
@@ -102,13 +103,3 @@ def test(array):
 print(test(num))
 
 """
-for j in range (621750):
-        num = roll(sampleMassDist)
-        for x in range(6):
-            while(num in numbers):
-                num = roll(sampleMassDist)
-            numbers[x] = num
-        numbers.sort()
-        print(numbers," ",rollStrong(sampleMassDistStrong))
-
-print(j)"""
