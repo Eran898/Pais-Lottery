@@ -70,11 +70,45 @@ def roll(massDist):
             return result
         result+=1
 
-for z in range(14):
+"""
+for (j<1,756,792):
+    j++
+    for z in range(14):
+        num = roll(sampleMassDist)
+        for x in range(6):
+            while(num in numbers):
+                num = roll(sampleMassDist)
+            numbers[x] = num
+        numbers.sort()
+        print(z+1,") ",numbers," ",rollStrong(sampleMassDistStrong))"""
+
+num = [11, 12, 13, 16, 34, 36]
+def test(array):
+    total =0
+    numbers = [0, 0, 0, 0, 0, 0]
     num = roll(sampleMassDist)
-    for x in range(6):
-        while(num in numbers):
-            num = roll(sampleMassDist)
-        numbers[x] = num
-    numbers.sort()
-    print(z+1,") ",numbers," ",rollStrong(sampleMassDistStrong))
+    while (numbers != array):
+        for x in range(6):
+            while(num in numbers):
+                num = roll(sampleMassDist)
+            numbers[x] = num
+        numbers.sort()
+
+
+        print( numbers, " ", rollStrong(sampleMassDistStrong))
+        total += 1
+    return total
+
+print(test(num))
+
+"""
+for j in range (621750):
+        num = roll(sampleMassDist)
+        for x in range(6):
+            while(num in numbers):
+                num = roll(sampleMassDist)
+            numbers[x] = num
+        numbers.sort()
+        print(numbers," ",rollStrong(sampleMassDistStrong))
+
+print(j)"""
